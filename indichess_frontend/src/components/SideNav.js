@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./component-styles/SideNav.css";
-import { FaChessPawn, FaSun, FaCog, FaBars } from 'react-icons/fa';  // Icons for the menu items
+import { FaChessPawn, FaSun, FaMoon, FaCog, FaBars } from 'react-icons/fa';  // Icons for the menu items
+import { useTheme } from "../context/ThemeContext";
 
 const SideNav = () => {
-  const [lightMode, setLightMode] = useState(false);  // To toggle between light and dark UI
-
-  const handleToggleLightMode = () => {
-    setLightMode(!lightMode);
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`side-nav ${lightMode ? 'light-mode' : ''}`}>
+    <div className="side-nav">
       <div className="logo">
-        <h2>Chess.com</h2>
-        <FaChessPawn size={40} />
+        <h2>IndiChess</h2>
+        <FaChessPawn size={40} style={{ color: 'var(--accent-color)' }} />
       </div>
 
       <div className="menu">
@@ -24,9 +21,9 @@ const SideNav = () => {
       </div>
 
       <div className="settings">
-        <button className="settings-item" onClick={handleToggleLightMode}>
-          <FaSun size={20} />
-          Light UI
+        <button className="settings-item" onClick={toggleTheme}>
+          {theme === 'light' ? <FaMoon size={20} /> : <FaSun size={20} />}
+          {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
         </button>
         <button className="settings-item">
           <FaBars size={20} />

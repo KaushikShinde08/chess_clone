@@ -2,27 +2,52 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #3b2f2f; /* Dark background color */
-  color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 15px 30px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  /* Increased shadow */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+
+  /* Ensure visibility and stacking */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width */
 }
 
 .left p {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  margin: 0;
 }
 
 .right {
   display: flex;
-  gap: 20px; /* Space between icons */
+  gap: 20px;
+  /* Space between icons */
+  align-items: center;
 }
 
 .right svg {
-  cursor: pointer; /* Add cursor pointer on icons */
-  transition: transform 0.3s ease; /* Smooth transition for icon interactions */
+  cursor: pointer;
+  /* Add cursor pointer on icons */
+  transition: transform 0.2s ease, color 0.2s ease;
+  /* Smooth transition for icon interactions */
+  color: var(--text-secondary);
 }
 
 .right svg:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  transform: scale(1.1);
+  /* Slight zoom effect on hover */
+  color: var(--accent-color);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }

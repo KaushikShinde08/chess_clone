@@ -7,15 +7,19 @@ import './App.css';
 import Game from "./pages/Game";
 
 
+import { ThemeProvider } from './context/ThemeContext';
+
 function App() {
   return (
-    <Router>
-      <Routes>
-      <Route path="/" element={<HomeCard />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/game/:matchId" element={<Game />} /> 
-      </Routes> 
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeCard />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/game/:matchId" element={<Game />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
